@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プレイリスト性格診断</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>プレイリスト診断</h1>
+            <p>あなたのプレイリストのスクショから、性格と音楽の聴き方を読み解きます。</p>
+        </header>
+
+        <main>
+            <div id="upload-area" class="upload-area">
+                <input type="file" id="image-upload" accept="image/*" multiple hidden>
+                <label for="image-upload" class="upload-label">
+                    <span class="icon">📁</span>
+                    <p>タップしてスクショを選択するか<br>ここにドロップしてください</p>
+                    <small>複数枚の選択も可能です</small>
+                </label>
+                <div id="preview-container" class="preview-container"></div>
+            </div>
+
+            <button id="diagnose-btn" class="primary-btn" disabled>診断を開始する</button>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>あなたの音楽性を分析中...</p>
+            </div>
+
+            <div id="result-area" class="result-area hidden"></div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
