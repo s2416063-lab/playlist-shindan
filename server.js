@@ -166,7 +166,10 @@ app.post('/api/diagnose', upload.array('images', 5), async (req, res) => {
   { model: "gemini-1.5-flash" },
   { apiVersion: "v1beta" }
 );
-        const result = await model.generateContent([SYSTEM_PROMPT, ...imageParts]);
+const result = await model.generateContent(
+  [SYSTEM_PROMPT, ...imageParts],
+  { apiVersion: "v1beta" }
+);
         const responseText = result.response.text();
 
 
