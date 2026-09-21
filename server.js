@@ -162,7 +162,10 @@ app.post('/api/diagnose', upload.array('images', 5), async (req, res) => {
             fileToGenerativePart(file.path, file.mimetype)
         );
 
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        const model = genAI.getGenerativeModel(
+  { model: "gemini-1.5-flash" },
+  { apiVersion: "v1beta" }
+);
         const result = await model.generateContent([SYSTEM_PROMPT, ...imageParts]);
         const responseText = result.response.text();
 
